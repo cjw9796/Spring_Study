@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	
+	<bean class="com.kh.springdi2.Myinfo" id="myInfo">
+
+		<property value="홍길동" name="name" />
+
+		<property value="170" name="height" />
+
+		<property value="120" name="weight" />
+
+		<!-- ArrayList로 생성한 객체를 초기화하려면 list 태그로 value 태그를 묶어서 초기화시킨다. -->
+
+
+
+		
+		<property name="hobbies">
+
+
+			<list>
+
+				<value>등산</value>
+
+				<value>바둑</value>
+
+				<value>낚시</value>
+
+			</list>
+
+		</property>
+
+		<property name="bmiCalculator" ref="bmiCalculator" />
+
+	</bean>
+
+	<bean class="com.kh.springdi2.BMICalculator" id="bmiCalculator" />
+
+</beans>	

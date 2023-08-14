@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  beans 태그 내부에 bean태그를 이용해서 클래스의 객체(bean(생성한다)
+		id속성에는 생성할 bean의 이름을 적는다.
+		class 속성에는 bean을 생성할 클래스의 이름을 받드시 풀 패키지 이름과 같이 적는다.
+	 -->
+	<bean id="myCalculator" class ="com.kh.springdi.MyCalculator">
+		
+		<!-- 생성된 bean의 필드를 초기화 하기 위해서 <bean> ~ </bean> 사이에 하면된다.
+			생성자나 setter 메서드를 이용해서 bean의 필드를 초기화 시킬 수 있다.
+			property 태그를 이용해서 setter 메서드를 실행하고 필드를 초기화시면 된다
+			name 속성에는setter 를 실행할 필드 이름을 적는다. 		
+		 -->
+		 
+		 <!--  필드 초기화 방법 1 => value 속성 사용 
+		 	myCalculator.setFirstNum(8) 와 같은 기능을 실행한다.
+		  -->
+		  <property name="firstNum" value ="10"/>
+		  
+		  <!--  필드 초기화 방법 2  => value 태그사용
+		  myCalculator.setsecondNum(5) 와 같은 기능을 실행한다.
+		   -->
+		  <property name="secondNum">
+		  	<value>2</value>
+		  </property>
+		  
+		  <!-- 클래스로 만든 변수 참조(reference) 변수 => 데이터를 기억하지 않고 
+		  	객체 메모리에 생성된 주소를 기억한다. 
+		  	객체 초기화 방법 - 1 => ref 속성 사용 
+		  	myCalculator.setCalculator(calculator); //의존성 주입
+		  <property name="calculator" ref ="calculator" />
+		   -->
+			<property name="calculator">
+				<ref bean ="calculator" />
+			</property>		
+	</bean>
+	
+	<!-- Calculator클래스 빈을 만든다   -->
+	<bean id="calculator" class ="com.kh.springdi.Calculator" />
+
+</beans>
+<!--  파일명: applicationCTX.xml -->

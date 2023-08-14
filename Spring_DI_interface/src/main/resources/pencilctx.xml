@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+<bean class="com.kh.springdi_interface.Pencil4B" id="pencil4B"/>
+
+<bean class="com.kh.springdi_interface.PencilH4B" id="pencilH4B"/>
+
+<bean class="com.kh.springdi_interface.PencilHB" id="pencilHB"/>
+
+</beans>
